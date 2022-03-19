@@ -14,9 +14,6 @@ const ForgotPassword = (props) => {
 
     const handleTokenResponse = (response) => {
         setShowPasswordChangeForm(true)
-        // if ("success" === response.tokenResponse) {
-        //    setShowPasswordChangeForm(true)
-        // }
     }
 
     const getToken = () => {
@@ -41,7 +38,7 @@ const ForgotPassword = (props) => {
             {
                 !showPasswordChangeForm &&
                 <>
-                    { showTokenInputer ?
+                    { !showTokenInputer ?
                         <div className="max-w-md mx-auto">
                             <div className="max-w-7xl mx-auto my-4">
                                 <h2 className="text-1l font-bold tracking-tight text-gray-900 sm:text-1">
@@ -86,8 +83,9 @@ const ForgotPassword = (props) => {
                    }
                 </>
             }
-            {showPasswordChangeForm &&  <PasswordResetForm username={userInput.phoneNumber}/> }
+            {showPasswordChangeForm &&  <PasswordResetForm username={userInput.phoneNumber}/>
+            }
         </>
-          )
+    )
 }
 export default ForgotPassword;
